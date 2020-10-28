@@ -42,14 +42,15 @@ class NewbornsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateNewbornRequest $request)
+    public function store(Request $request)
     {
         $newborn = Newborn::create([
+            'user_id' => 1,
             'parents_name' => $request->name,
             'dob' => $request->dob,
             'sex' => $request->sex,
             'result' => $request->result,
-            'stage_id' =>$request->stage
+            'stage_id' => 1
         ]);
 
         session()->flash('success', 'Newborn added.');
