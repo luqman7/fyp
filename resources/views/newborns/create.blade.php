@@ -11,7 +11,7 @@
         <form action="{{ isset($newborn) ? route('newborns.update', $newborn->id) : route('newborns.store') }}" method="POST">
             @csrf
             @if(isset($newborn))
-                @method('PUT')
+            @method('PUT')
             @endif
             <div class="form-group">
                 <label for="name">Name</label>
@@ -24,18 +24,18 @@
             <div class="form-group">
                 <label for="sex">Sex</label>
                 <select name="sex" id="sex" class="form-control">
-                    <option value='' >Please Select</option>
-                    <option value="{{ isset($newborn) ? $newborn->sex : 'M' }}" >Male</option>
-                    <option value="{{ isset($newborn) ? $newborn->sex : 'F' }}">Female</option>
-                    <option value="{{ isset($newborn) ? $newborn->sex : 'U' }}" >Unknown</option>
+                    <option value=''>Please Select</option>
+                    <option value='M' {{$newborn->sex=="M" ? "selected" : ""}}>Male</option>
+                    <option value='F' {{$newborn->sex=="F" ? "selected" : ""}}>Female</option>
+                    <option value='U' {{$newborn->sex=="U" ? "selected" : ""}}>Unknown</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="result">Result</label>
                 <select name="result" id="result" class="form-control">
-                    <option value='' >Please Select</option>
-                    <option value="{{ isset($newborn) ? $newborn->result : 'P' }}" >Pass</option>
-                    <option value="{{ isset($newborn) ? $newborn->result : 'F' }}" >Fail</option>
+                    <option value=''>Please Select</option>
+                    <option value='P' {{$newborn->result=="P" ? "selected" : ""}}>Pass</option>
+                    <option value='F' {{$newborn->result=="F" ? "selected" : ""}}>Fail</option>
                 </select>
             </div>
             <div class="form-group">
@@ -46,7 +46,7 @@
                     @endforeach
                 </select>
             </div>
-            
+
             <button type="submit" class="btn btn-success">
                 {{ isset($newborn) ? 'Edit Newborn': 'Add Newborn'}}
             </button>
