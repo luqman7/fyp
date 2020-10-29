@@ -2,7 +2,9 @@
 
 namespace FYP\Providers;
 
+use FYP\Stage;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::share('stages', Stage::all());
     }
 }

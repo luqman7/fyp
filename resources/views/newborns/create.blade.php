@@ -3,32 +3,39 @@
 @section('content')
 
 <div class="card">
-    <div class="card-header">Add New Newborn</div>
+    <div class="card-header">
+        {{ isset($newborn) ? 'Edit Newborn' : 'Add Newborn'}}
+    </div>
 
     <div class="card-body">
-        <form action="{{ route('newborns.store') }}" method="POST">
+        <form action="{{ isset($newborn) ? route('newborns.update', $newborn->id) : route('newborns.store') }}" method="POST">
             @csrf
+            @if(isset($newborn))
+                @method('PUT')
+            @endif
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" value="" placeholder="Name">
+                <input type="text" class="form-control" name="name" value="{{ isset($newborn) ? $newborn->parents_name : '' }}" placeholder="Name">
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth</label>
-                <input type="date" class="form-control" name="dob" value="">
+                <input type="date" class="form-control" name="dob" value="{{ isset($newborn) ? $newborn->dob : '' }}">
             </div>
             <div class="form-group">
                 <label for="sex">Sex</label>
                 <select name="sex" id="sex" class="form-control">
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="U">Unknown</option>
+                    <option value='' >Please Select</option>
+                    <option value="{{ isset($newborn) ? $newborn->sex : '' }}" >Male</option>
+                    <option value="{{ isset($newborn) ? $newborn->sex : '' }}">Female</option>
+                    <option value="{{ isset($newborn) ? $newborn->sex : '' }}" >Unknown</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="result">Result</label>
                 <select name="result" id="result" class="form-control">
-                    <option value="P">Pass</option>
-                    <option value="F">Fail</option>
+                    <option value='' >Please Select</option>
+                    <option value="{{ isset($newborn) ? $newborn->result : '' }}" >Pass</option>
+                    <option value="{{ isset($newborn) ? $newborn->result : '' }}" >Fail</option>
                 </select>
             </div>
             <div class="form-group">
@@ -40,7 +47,9 @@
                 </select>
             </div>
             
-            <button type="submit" class="btn btn-success">Add Newborn</button>
+            <button type="submit" class="btn btn-success">
+                {{ isset($newborn) ? 'Edit Newborn': 'Add Newborn'}}
+            </button>
     </div>
     </form>
 </div>

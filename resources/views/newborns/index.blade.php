@@ -9,13 +9,14 @@
 <div class="card">
     <div class="card-header">
         {{ $newborn->parents_name }}
+        <a href="{{ route('newborns.edit', $newborn->id) }}" class="btn btn-info btn-sm">EDIT</a>
     </div>
 
     <div class="card-body">
-        {{ $newborn->stage_id }}
+        <center>Stage {{ $newborn->stage_id }}</center>
     </div>
 </div>
-@endforeach
+@endforeach 
 
 {{ $newborns->links() }}
 

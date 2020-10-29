@@ -33,7 +33,7 @@ class NewbornsController extends Controller
      */
     public function create()
     {
-        return view('newborns.create', ['stages' => Stage::all()]);
+        return view('newborns.create');
     }
 
     /**
@@ -44,13 +44,12 @@ class NewbornsController extends Controller
      */
     public function store(Request $request)
     {
-        $newborn = Newborn::create([
-            'user_id' => 1,
+        auth()->user()->newborns()->create([
             'parents_name' => $request->name,
             'dob' => $request->dob,
             'sex' => $request->sex,
             'result' => $request->result,
-            'stage_id' => 1
+            'stage_id' => $request->stage
         ]);
 
         session()->flash('success', 'Newborn added.');
@@ -75,9 +74,9 @@ class NewbornsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Newborn $newborn)
     {
-        //
+        return view('newborns.create')->with('newborn', $newborn);
     }
 
     /**
@@ -87,9 +86,19 @@ class NewbornsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Newborn $newborn)
     {
-        //
+        $newborn->parents_name = $request->name;
+        $newborn->dob = $request->dob;
+        $newborn->sex = $request->sex;
+        $newborn->result = $request->result;
+        $newborn->stage_id = $request->stage;
+
+        $newborn->save();
+
+        session()->flash('success', 'Successfully');
+
+        return redirect(route('newborns.index'));
     }
 
     /**
