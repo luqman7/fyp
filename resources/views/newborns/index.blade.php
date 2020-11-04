@@ -16,7 +16,7 @@
         <center>Stage {{ $newborn->stage_id }}</center>
     </div>
 </div>
-@endforeach 
+@endforeach
 
 {{ $newborns->links() }}
 

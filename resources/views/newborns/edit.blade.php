@@ -25,17 +25,17 @@
                 <label for="sex">Sex</label>
                 <select name="sex" id="sex" class="form-control">
                     <option value=''>Please Select</option>
-                    <option value='M' {{isset($newborn) ? $newborn->sex=="M" ? "selected" : "" : ""}}>Male</option>
-                    <option value='F' {{isset($newborn) ? $newborn->sex=="F" ? "selected" : "" : ""}}>Female</option>
-                    <option value='U' {{isset($newborn) ? $newborn->sex=="U" ? "selected" : "" : ""}}>Unknown</option>
+                    <option value='M' {{$newborn->sex=="M" ? "selected" : ""}}>Male</option>
+                    <option value='F' {{$newborn->sex=="F" ? "selected" : ""}}>Female</option>
+                    <option value='U' {{$newborn->sex=="U" ? "selected" : ""}}>Unknown</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="result">Result</label>
                 <select name="result" id="result" class="form-control">
                     <option value=''>Please Select</option>
-                    <option value='P' {{isset($newborn) ? $newborn->result=="P" ? "selected" : "" : ""}}>Pass</option>
-                    <option value='F' {{isset($newborn) ? $newborn->result=="F" ? "selected" : "" : ""}}>Fail</option>
+                    <option value='P' {{$newborn->result=="P" ? "selected" : ""}}>Pass</option>
+                    <option value='F' {{$newborn->result=="F" ? "selected" : ""}}>Fail</option>
                 </select>
             </div>
             <div class="form-group">
