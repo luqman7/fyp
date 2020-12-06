@@ -19,7 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!--<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">-->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -86,12 +86,12 @@
                         </li>
                         <li class="list-group-item">
 
-                            Newborns
+                            Verify Date
 
                         </li>
                         <li class="list-group-item">
 
-                            Profile
+                            Send Reminder to Parents
 
                         </li>
                     </ul>
@@ -111,8 +111,6 @@
     </div>
 
     <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
-
-    @yield('scripts')
 
 </body>
 

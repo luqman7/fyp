@@ -107,8 +107,12 @@ class NewbornsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Newborn $newborn)
     {
-        //
+        $newborn->delete();
+
+        session()->flash('success', 'Deleted Successfully.');
+
+        return redirect(route('newborns.index'));
     }
 }
