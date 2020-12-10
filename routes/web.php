@@ -26,3 +26,5 @@ Route::get('/parent', 'ParentController@index')->name('parent');
 
 Route::resource('newborns', 'NewbornsController');
 Route::resource('admins', 'AdminController');
+
+//Route::delete('/newborns/{newborn}', 'NewbornsController@destroy')->name('newborns.destroy')->middleware('auth');

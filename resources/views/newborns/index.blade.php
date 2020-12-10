@@ -10,7 +10,7 @@
     <div class="card-header">
         {{ $newborn->parents_name }}
         <a href="{{ route('newborns.edit', $newborn->id) }}" class="btn btn-info btn-sm">EDIT</a>
-    <button class="btn-danger btn-sm" onclick="handleDelete({{ $newborn->id }})">REMOVE</button>
+    <button class="btn btn-danger btn-sm" onclick="handleDelete({{ $newborn->id }})">X</button>
     </div>
 
     <div class="card-body">
@@ -20,17 +20,17 @@
     <div class="modal" id="deleteModal" tabindex="-1">
         <div class="modal-dialog">
           <form action="" method="POST" id="deleteNewbornForm">
-              @@method('DELETE')
               @csrf
+              @method('DELETE')
             <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">Delete Newborn</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="deleteModalLabel">
+                  <h5 class="modal-title" id="DeleteModalLabel">Delete Newborn</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Modal body text goes here.</p>
+                  <p class="text-center">Are you sure you want to delete this newborn?</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
@@ -53,7 +53,7 @@
         function handleDelete(id) {
             var form = document.getElementById('deleteNewbornForm')
             form.action = '/newborns/' + id
-                $('deleteModal').modal('show')
+                $('#deleteModal').modal('show')
         }
     </script>
 @endsection

@@ -111,7 +111,7 @@
     </div>
 
     <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     @yield('scripts')
 
 </body>

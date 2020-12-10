@@ -111,7 +111,7 @@ class NewbornsController extends Controller
     {
         $newborn->delete();
 
-        session()->flash('success', 'Deleted Successfully.');
+        session()->flash('success', 'Deleted Successfully');
 
         return redirect(route('newborns.index'));
     }
