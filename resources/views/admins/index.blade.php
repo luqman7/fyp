@@ -2,16 +2,36 @@
 
 @section('content')
 <div class="d-flex justify-content-end mb-2">
-    <a href="//" class="btn btn-success">TEST</a>
+    <!--<a href="//" class="btn btn-success">TEST</a>-->
 </div>
 
-@foreach($users as $user)
-<div class="card">
-    <div class="card-header">
-        {{ $user->name }}
-        <a href="" class="btn btn-info btn-sm">VIEW</a>
-        <button class="btn btn-danger btn-sm" onclick="handleDelete({{ $user->id }})">REMOVE USER</button>
-    </div>
+<div class="card card-default">
+    <div class="card-header">List of Users</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </thead>
+
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td>
+                                {{ $user->name }}
+                            </td>
+                            <td>
+                                {{ $user->email }}
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" onclick="handleDelete({{ $user->id }})">X</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 
     <div class="modal" id="deleteModal" tabindex="-1">
         <div class="modal-dialog">
@@ -36,16 +56,7 @@
           </form>
         </div>
       </div>
-
-
-    <div class="card-body">
-        <center>{{ $user->email }}</center>
-    </div>
 </div>
-@endforeach
-
-
-
 @endsection
 
 @section('scripts')

@@ -80,19 +80,13 @@
                 <div class="col-md-4">
                     <ul class="list-group">
                         <li class="list-group-item">
-
-                            Home
-
+                            <a href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="list-group-item">
-
-                            Newborns
-
+                            <a href="{{ route('newborns.index') }}">Newborns</a>
                         </li>
                         <li class="list-group-item">
-
-                            Profile
-
+                            <a href="{{ route('users.edit-profile') }}">My Profile</a>
                         </li>
                     </ul>
                 </div>

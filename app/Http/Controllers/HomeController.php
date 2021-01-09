@@ -2,6 +2,8 @@
 
 namespace FYP\Http\Controllers;
 
+// require 'vendor/autoload.php';
+
 use FYP\Newborn;
 use FYP\User;
 use Illuminate\Http\Request;
@@ -10,6 +12,7 @@ use FYP\Charts\NewbornChart;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRoles;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -45,6 +48,11 @@ class HomeController extends Controller
         //$b = Newborn::where('stage_id', '2')->count();
         //$c = Newborn::where('stage_id', '3')->count();
 
+        $day = Carbon::now('Asia/Kuala_Lumpur')->toDateString();
+        $day1 = array();
+        $data = Newborn::where('stage_id', '1')->whereDate('created_at', $day)->get()->count();
+        array_push($day1, $data);
+
         $month = array();
         for ($i = 9; $i <= 12; $i++) {
             $data = Newborn::where('stage_id', '1')->whereMonth('created_at', strval($i))->get()->count();
@@ -62,6 +70,13 @@ class HomeController extends Controller
             $data = Newborn::where('stage_id', '3')->whereMonth('created_at', strval($i))->get()->count();
             array_push($month2, $data);
         }
+
+        $chart3 = new NewbornChart;
+        $chart3->labels(['Today']);
+        $chart3->dataset('Stage 1', 'bar', $day1)->backgroundColor('blue');
+        $chart3->dataset('Stage 2', 'bar', [10])->backgroundColor('grey');
+        $chart3->dataset('Stage 3', 'bar', [7])->backgroundColor('green');
+
 
         $chart = new NewbornChart;
         $chart->labels(['September', 'October', 'November', 'December']);
@@ -94,6 +109,6 @@ class HomeController extends Controller
         $chart1->dataset('Stage 3', 'bar', $year2)->backgroundColor('green');
 
 
-        return view('home', compact('chart', 'chart1'));
+        return view('home', compact('chart', 'chart1', 'chart3'));
     }
 }

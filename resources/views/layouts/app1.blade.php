@@ -80,19 +80,16 @@
                 <div class="col-md-4">
                     <ul class="list-group">
                         <li class="list-group-item">
-
-                            Home
-
+                            <a href="{{ route('admin') }}">Home</a>
                         </li>
                         <li class="list-group-item">
-
-                            Verify Date
-
+                            <a href="{{ route('appointments.index') }}">View Appointment</a>
                         </li>
                         <li class="list-group-item">
-
-                            Send Reminder to Parents
-
+                            <a href="{{ route('admins.create') }}">Add Administrator</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ route('telegram') }}">Announce in Telegram</a>
                         </li>
                     </ul>
                 </div>

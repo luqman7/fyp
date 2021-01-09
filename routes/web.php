@@ -11,6 +11,7 @@
 |
 */
 
+use FYP\Http\Controllers\ApptController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,10 +22,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/parent', 'ParentController@index')->name('parent');
-
 
 Route::resource('newborns', 'NewbornsController');
 Route::resource('admins', 'AdminController');
+Route::resource('users', 'UsersController');
+Route::resource('appointments', 'ApptController');
 
-//Route::delete('/newborns/{newborn}', 'NewbornsController@destroy')->name('newborns.destroy')->middleware('auth');
+Route::get('/users', 'UsersController@edit')->name('users.edit-profile');
+Route::put('/users', 'UsersController@update')->name('users.update-profile');
+
+Route::get('/telegram', 'TelegramBotController@sendMessage')->name('telegram');
+Route::post('/send-message', 'TelegramBotController@storeMessage');
+Route::get('/updated-activity', 'TelegramBotController@updatedActivity');
