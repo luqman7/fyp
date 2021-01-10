@@ -25,8 +25,7 @@ class TelegramBotController extends Controller
             'message' => 'required'
         ]);
 
-        $text = "ATTENTION\n"
-            . "<b>Just a soft reminder for appointment on the next day.</b>\n"
+        $text = "\n"
             . "$request->subject\n"
             . "<b>Message: </b>\n"
             . $request->message;
