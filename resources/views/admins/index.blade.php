@@ -63,7 +63,7 @@
     <script>
         function handleDelete(id) {
             var form = document.getElementById('deleteUserForm')
-            form.action = '/user/' + id
+            form.action = '/users/' + id
                 $('#deleteModal').modal('show')
         }
     </script>
