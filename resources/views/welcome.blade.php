@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #E6E6FA;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -85,9 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('login') }}">Audiologist (User)</a>
-                    <a href="{{ route('login') }}">Admin</a>
-                    <a href="">Parent</a>
+                    A web application for audiologist and administrator
                 </div>
             </div>
         </div>

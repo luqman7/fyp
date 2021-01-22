@@ -10,6 +10,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    @laravelPWA
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
