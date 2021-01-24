@@ -87,8 +87,8 @@ class HomeController extends Controller
         }
         $chart3 = new NewbornChart;
         $chart3->labels(['Today']);
-        $chart3->dataset('Stage 1', 'bar', $day1)->backgroundColor('blue');
-        $chart3->dataset('Stage 2', 'bar', $day2)->backgroundColor('grey');
+        $chart3->dataset('Stage 1', 'bar', [7])->backgroundColor('blue');
+        $chart3->dataset('Stage 2', 'bar', [4])->backgroundColor('grey');
         $chart3->dataset('Stage 3', 'bar', $day3)->backgroundColor('green');
 
         $chart = new NewbornChart;
