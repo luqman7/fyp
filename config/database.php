@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Str;
+
+$DATABASE_URL = parse_url('postgres://buulugaexiflfy:c9232749191e959e79ce0a0fd1b806a7bb835354b6d391dfd54b596c2a750f92@ec2-54-235-158-17.compute-1.amazonaws.com:5432/d8h7sjoiqa1il');
+
 return [
 
     /*
